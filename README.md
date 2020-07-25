@@ -1,3 +1,12 @@
+# SCSS Architecture
+You can check the styles folder, angular.json and test component where i made changes to
+follow SCSS pattern which make development agile.
+
+
+# Demo 
+
+![image](src/assets/img.png)
+
 # Testingpurpose
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
