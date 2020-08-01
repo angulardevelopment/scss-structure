@@ -1,27 +1,6 @@
-<!-- <form [formGroup]="form" (ngSubmit)="submit(form.value)">
-	<div>
-		<label>Purchase Price</label>
-		<input type="number" formControlName="purchaseprice"
-     [value]="calculatePurchasePriceTaxes()">
-	</div>
-	<div>
-		<label>TAXES</label>
-		<select formControlName="taxes">
-                  <option value="21">21%</option>
-                  <option value="10">10%</option>
-                  <option value="4">4%</option>
-                </select>
-	</div>
-	<div>
-		<label>Purchase Price + TAX.</label>
-		<input type="number" formControlName="purchasepricetaxes" 
-    >
-	</div>
-  <button type="submit">submit</button>
-</form>
+<app-test></app-test>
 
 
-<h1>{{title}}</h1>
 
 <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
 
@@ -73,11 +52,8 @@
 
 </form>
 
-
 <p>
   <button type="button" (click)="addEmployee()">Add Employee</button>
 </p>
 
-{{this.empForm.value | json}} -->
-
-<app-test></app-test>
+{{this.empForm.value | json}}

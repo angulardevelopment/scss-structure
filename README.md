@@ -1,6 +1,6 @@
-# SCSS Architecture
-You can check the styles folder, angular.json and test component where i made changes to
-follow SCSS pattern which make development agile.
+# SCSS Structure
+Angular forms with SCSS Architecture. It is preferable to Follow SCSS pattern which make development agile.
+To make this structure we create styles folder, change in angular.json file.
 
 
 # Demo 
