@@ -1,5 +1,42 @@
 @import '../../styles/abstracts/variables.scss';
 
-label {
+h2 {
     color: $text-color;
 }
+
+// content directive example
+@mixin element{
+  @content;
+}
+// added content in mixin
+@mixin element {
+   background-color: black;
+   color: red;
+   @content;
+}
+
+h3 {
+   @include element;
+   font-weight: bold;
+}
+
+// end
+
+// update single style
+@each $color in pink, violet, yellow, blue {
+  .p_#{$color} {
+      background-color: #{$color};
+  }
+}
+
+// update multiple style
+@each $color, $border in (aqua, dotted),
+                        (red, solid),
+                        (green, double){
+  .#{$color} {
+    background-color : $color;
+    border: $border;
+  }
+}
+
+
