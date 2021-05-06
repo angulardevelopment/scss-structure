@@ -1,23 +1,25 @@
-@import '../../styles/abstracts/variables.scss';
+@import "../../styles/abstracts/variables.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 h2 {
-    color: $text-color;
+  color: $text-color;
 }
 
 // content directive example
-@mixin element{
+@mixin element {
   @content;
 }
 // added content in mixin
 @mixin element {
-   background-color: black;
-   color: red;
-   @content;
+  background-color: black;
+  color: red;
+  @content;
 }
 
 h3 {
-   @include element;
-   font-weight: bold;
+  @include element;
+  font-weight: bold;
 }
 
 // end
@@ -25,18 +27,860 @@ h3 {
 // update single style
 @each $color in pink, violet, yellow, blue {
   .p_#{$color} {
-      background-color: #{$color};
+    background-color: #{$color};
   }
 }
 
 // update multiple style
-@each $color, $border in (aqua, dotted),
-                        (red, solid),
-                        (green, double){
+@each $color, $border in (aqua, dotted), (red, solid), (green, double) {
   .#{$color} {
-    background-color : $color;
+    background-color: $color;
     border: $border;
   }
 }
 
+$default-font: "Open Sans", sans-serif;
+@mixin linx($link, $visit, $hover, $active) {
+  a {
+    color: $link;
+    &:visited {
+      color: $visit;
+    }
+    &:hover {
+      color: $hover;
+    }
+    &:active {
+      color: $active;
+    }
+  }
+}
+.menu-button {
+  @include linx(brown, blue, green, red);
+}
 
+@mixin element {
+  background-color: black;
+  color: red;
+  @content;
+}
+
+p {
+  @include element;
+  font-weight: bold;
+}
+
+h2 {
+  color: if(1 + 1==3, green, red);
+}
+
+p {
+  @if 1+1==2 {
+    border: 1px solid;
+  }
+  @if 5 < 3 {
+    border: 2px dotted;
+  }
+  @if null {
+    border: 3px double;
+  }
+}
+p {
+  @if 1 + 1 == 2 {
+    border: 1px solid;
+  }
+  @if 5 < 3 {
+    border: 2px dotted;
+  }
+  @if null {
+    border: 3px double;
+  }
+}
+
+$type: monster;
+p {
+  @if $type==ocean {
+    color: blue;
+  } @else if $type==matador {
+    color: red;
+  } @else if $type==monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+@for $i from 1 to 4 {
+  .p#{$i} {
+    padding-left: $i * 10px;
+  }
+}
+
+.rt {
+  --main-bg-color: brown;
+}
+
+.one {
+  color: white;
+  background-color: var(--main-bg-color);
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.two {
+  color: white;
+  background-color: black;
+  margin: 10px;
+  width: 150px;
+  height: 70px;
+  display: inline-block;
+}
+.three {
+  color: white;
+  background-color: var(--main-bg-color);
+  margin: 10px;
+  width: 75px;
+}
+.four {
+  color: white;
+  background-color: var(--main-bg-color);
+  margin: 10px;
+  width: 100px;
+}
+
+.five {
+  background-color: var(--main-bg-color);
+}
+
+$colors: (
+  lighestGray: #f8f8fa,
+  lightGray: #a5acba,
+  light: #ffffff,
+  dark: #000000,
+  link: #428bca,
+  linkHover: #555,
+  navBlue: #7ac243,
+  navGreen: #009cdc,
+);
+
+.my-class {
+  color: map-get($colors, navBlue);
+}
+
+@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two");
+
+:root {
+  --primary-color: rgba(241, 196, 15, 1);
+  --secondary-color: teal;
+  --slider: 0;
+}
+
+// body {
+//   margin: 0;
+//   color: rgba(255,255,255,0.9);
+//   background: url('http://bit.ly/2FiPrRA') 0 100%/340px no-repeat, var(--primary-color);
+//   font-family: 'Shadows Into Light Two', cursive;
+// }
+
+main.booth {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slider */
+.slider,
+.instructions {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+.slider {
+  right: 10px;
+}
+.slider > * {
+  display: block;
+}
+
+/* Instructions */
+.instructions {
+  text-align: center;
+  bottom: 0;
+  background: initial;
+  color: black;
+}
+
+/* Color Boxes */
+.color-boxes {
+  background: red;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 0.3rem;
+  //The perspective() function is applied to an element that is being transformed in 3D space.
+  //It activates the 3D space and gives the element depth along the z-axis.
+  //Upon activation the 3d space, the element has the planes x, y, z. The rotateY function rotates the element along the Y plane
+  //You can convert them to any unit you want by doing a multiplication via the calc function.
+  transform: perspective(500px) rotateY(calc(var(--slider) * 1deg));
+  transition: transform 0.3s;
+}
+
+.color-box {
+  padding: 1rem 3.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.3rem;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4);
+}
+// last-child {
+/* Handle colors for each color box */
+.color-box:nth-child(1) {
+  background: var(--bg-1);
+}
+.color-box:nth-child(2) {
+  background: var(--bg-2);
+}
+.color-box:nth-child(3) {
+  background: var(--bg-3);
+}
+.color-box:nth-child(4) {
+  background: var(--bg-4);
+}
+.color-box:nth-child(5) {
+  background: var(--bg-5);
+}
+.color-box:nth-child(6) {
+  background: var(--bg-6);
+}
+
+.btn {
+  padding: 2rem 4rem;
+  border: 2px solid var(--color, black); //if this variable is not declared then it will take black as default
+  background: transparent;
+  font-size: 0.6em;
+  border-radius: 2px;
+}
+/*on hover*/
+.btn:hover {
+  cursor: pointer;
+  background: var(--color, black);
+  color: white;
+}
+
+// .btn.red {
+//   border-color: red
+// }
+// .btn.red:hover {
+//   background: red
+// }
+//or
+.btn.red {
+  --color: red;
+}
+
+div.abc {
+  background-color: var(--bg, white);
+  color: var(--bg-text, black);
+}
+
+// Use class at every place
+// Modal-wrapper popupname
+// Width auto or we can work on percent
+// for all popups
+// Innerpopup class name
+// Width:Calc(100% - 20%)
+// p has default some margin
+// Max-height
+// Overflow auto
+// 100vh according to viewport
+// Remove position absolute
+// Add width 0 auto and margin
+// Common-
+// Header
+// Button
+// Popups according to project
+// Accordion for animation for popups
+// Variablefunction, mixin, import in common
+// Avoid height use padding
+.example-card {
+  max-width: 400px; //If the content is larger than the maximum width, it will automatically change the height of the element.
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+} //the colon ( : ) operator is used to define a variable in scss
+$text-color: #222222;
+$header-height: 60px;
+// Sass, the variable sign is ! instead of $ and  assignment sign is = instead of :
+// "#" or ".", but in SASS they are replaced with "% and in sass we do not need brackets and semicolons
+.class1,
+.class2 {
+  color: blue;
+}
+
+h2 {
+  width: 3px * 5 + 5px; // 20px
+  width: 3 * (5px + 5px); // 30px
+  width: 3px + (6px / 2) * 3; // 12px
+}
+
+//e.g 2 working
+@mixin text($colour, $size) {
+  color: $colour;
+  font-size: $size;
+}
+
+.phone-type-1 {
+  @include text(yellow, 14px);
+}
+
+h2 {
+  color: if(1 + 1==3, green, red);
+}
+
+p {
+  @if 1+1==2 {
+    border: 1px solid;
+  }
+  @if 5 < 3 {
+    border: 2px dotted;
+  }
+  @if null {
+    border: 3px double;
+  }
+}
+
+$type: monster;
+p {
+  @if $type==ocean {
+    color: blue;
+  } @else if $type==matador {
+    color: red;
+  } @else if $type==monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+@for $i from 1 through 4 {
+  .p#{$i} {
+    padding-left: $i * 10px;
+  }
+}
+
+@for $i from 1 to 4 {
+  .p#{$i} {
+    padding-left: $i * 10px;
+  }
+}
+
+@each $color in pink, violet, yellow, blue {
+  .p_#{$color} {
+    background-color: #{$color};
+  }
+}
+
+@each $color, $border in (aqua, dotted), (red, solid), (green, double) {
+  .#{$color} {
+    background-color: $color;
+    border: $border;
+  }
+}
+
+$i: 100;
+@while $i>0 {
+  .paddding-#{$i} {
+    padding-left: 1px * $i;
+  }
+  $i: $i - 20;
+}
+
+//include other scss file
+// _reset.scss
+// html,
+// body,
+// ul,
+// ol {
+//    margin: 0;
+//   padding: 0;
+// }
+// // base.scss
+// @import 'reset';
+// body {
+//   font: 100% Helvetica, sans-serif;
+//   background-color: #efefef;
+// }
+h2 {
+  color: violet;
+}
+
+.style {
+  width: 500px;
+  @media screen and (orientation: portrait) {
+    width: 200px;
+    margin-left: 80px;
+  }
+}
+
+h2 {
+  color: violet;
+}
+
+.style {
+  width: 500px;
+}
+
+@media screen and (orientation: portrait) {
+  // @media only screen and (orientation: landscape) {
+  .style {
+    width: 200px;
+    margin-left: 80px;
+  }
+}
+
+#somethingorother {
+  width: 800px;
+}
+
+@media screen and (max-width: 320px) {
+  /* comes into effect for screens less than or equal to 320 pixels */
+  #somethingorother {
+    width: 120px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+  #somethingorother {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  /* comes into effect for screens larger than or equal to 481 pixels */
+  #somethingorother {
+    width: 480px;
+  }
+}
+
+/* code that is here will apply to any screen size */
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
+
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+.warning {
+  @extend .message; //try to use extend to improve scss
+  border-color: yellow;
+}
+
+//It works by ‘jumping out’ of where you nest it in your Sass to be a the top level. @at-root
+h2 {
+  color: blue;
+  background-color: pink;
+  @at-root {
+    .style {
+      font-size: 20px;
+      font-style: bold;
+      color: violet;
+    }
+  }
+}
+
+//the above code will render like this
+h2 {
+  color: blue;
+  background-color: pink;
+}
+.style {
+  font-size: 20px;
+  font-style: bold;
+  color: violet;
+}
+$font-sizes: 10px+20px;
+$style: (
+  color: #bdc3c7,
+);
+// .container {
+// @debug $style;
+// @debug $font-sizes;
+// }
+$main-color: #bdc3c7;
+// @warn "Darker: " darken($main-color, 30%);
+// @debug "kicking the party";
+
+//
+$font-sizes: 10px+20px;
+$style: (
+  color: #bdc3c7,
+);
+// .container {
+// @debug $style;
+// @debug $font-sizes;
+// }
+$main-color: #bdc3c7;
+// @warn "Darker: " darken($main-color, 30%);
+// @debug "kicking the party";
+@mixin nudge($x, $y) {
+  @error "this will throw inline error";
+  @error "Sorry, but `#{$variable}` is not a valid value for $variable.";
+  @if unitless($x) {
+    @warn "You may have forgotten a unit for the X value. Expects pixels. Value was: #{$x}.";
+    $x: 1px * $x;
+  }
+  @if unitless($y) {
+    @warn "You may have forgotten a unit for the Y value. Expects pixels. Value was: #{$y}.";
+    $y: 1px * $y;
+  }
+  position: relative;
+  left: $x;
+  top: $y;
+}
+
+// .logo{
+//   //incorrect usage
+//   @include nudge(5,10 )
+// }
+// .widget{
+//   @include nudge(12px,-4px )
+// }
+$colors: (
+  brand-red: #c0392b,
+  brand-blue: #2980b9,
+  text-gray: #2c3e50,
+  text-silver: #bdc3c7,
+);
+@function color-variation($color) {
+  @if map-has-key($colors, $color) {
+    @return map-get($colors, $color);
+  }
+  @error "Invalid color name: `#{$color}`.";
+}
+
+.element {
+  // color: color-variation(brand-orange);   //will show error
+  color: color-variation(brand-red);
+}
+
+@mixin border-radius($radius) {
+  @warn "The `border-radius()` mixin will be deprecated in version 2.0.";
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@function do-math($input) {
+  @if unit($input) == "px" {
+    @warn "Please remember to use rem values in the `do-math()` function."; // do px math and @return a value to prevent the function from going any further
+  } // do rem math and @return a value
+}
+
+//learn &.
+
+/* There are two types of positioning
+There is static-type positioning and relative-type positioning.
+positions through the use of offset properties, those being: top, right, bottom and left.
+*/
+
+.ourBox {
+  position: static; //  relative, absolute and fixed
+}
+
+/* The element is taken out of normal flow and leaves no space behind.
+The element is positioned relative to its nearest parent with a relative-type positioning.
+Let’s take a look: */
+
+.ourBoxesParent {
+  position: relative;
+}
+
+.ourBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// p.reddy {
+//     background: red;
+//   }
+// The second declaration will overrule the former, and the paragraph will be blue and not red
+p.reddy {
+  background: blue;
+}
+
+/* transform applies a 2D or 3D transformation to an element
+for  IE -ms-transform:
+for Chrome  -webkit-transform: */
+
+//  top:0px;     /*move from parent of element*/
+// overflow:hidden;  /*visible,auto,scroll*/
+// visibility:visible;  /* visible|hidden|collapse(this is for table rows and columns)|initial|inherit; */
+$color-blue: #1c94c6;
+$font-sizes: sm, p, bq, heading, hero;
+$colors: (
+  brand-red: #c0392b,
+  brand-blue: #2980b9,
+  text-gray: #2c3e50,
+  text-silver: #bdc3c7,
+);
+.element {
+  @debug $color-blue; // single value
+  @debug $font-sizes; // list
+  @debug $colors; // map
+  @debug 4em * 3; // math expression
+  @debug "My very own string just because."; // string
+}
+
+$first-width: 5px;
+$second-width: 5px;
+@function adjust_width($n) {
+  @return $n * $first-width + ($n - 1) * $second-width;
+}
+
+#set_width {
+  padding-left: adjust_width(10);
+}
+
+//This makes sure that the padding and border are included in the total width and height of the elements
+* {
+  box-sizing: border-box;
+}
+
+//in box modal these things are constant padding, marginn, border
+/* box-sizing: content-box  with paddng, margin, border*/
+
+// @error, @warn, and @debug  adv. directives to check scss
+//width need to be in percent to make it responsive
+//to make img respodsive give width 100%
+// If the max-width property is set to 100%, the image will scale down if it has to, but never scale up to be larger than its original size:
+// !important -ignore subsequent rules, and apply this rules  overrides particular property
+p {
+  color: red !important;
+}
+
+#thing {
+  color: green;
+}
+
+// the most common way to use the clear property is after you have used a float property on an element.
+.div1 {
+  float: left;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  border: 3px solid #73ad21;
+}
+
+.div2 {
+  border: 1px solid red;
+}
+
+.div3 {
+  float: left;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  border: 3px solid #73ad21;
+}
+
+.div4 {
+  border: 1px solid red;
+  clear: left;
+}
+
+// div {
+//     border: 3px solid #4CAF50;
+//     padding: 5px;
+// }
+.img1 {
+  float: right;
+}
+
+// .clearfix {
+//   overflow: auto;
+// }
+// or
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.img2 {
+  float: right;
+}
+
+// Styles are included into the mixin in the @content directive location.//means u can modify mixin using content directive
+@mixin element {
+  background-color: black;
+  color: red;
+  @content;
+}
+
+p {
+  @include element;
+  font-weight: bold;
+}
+
+//BEM approach-block, element,modifier
+.post {
+  display: inline-block;
+  padding: 1rem;
+  background-color: #ccc;
+  border: 1px solid #222;
+  border-radius: 5px;
+  &--important {
+    background-color: yellow;
+  }
+  &__author {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: blue;
+  }
+  &__date {
+    float: right;
+  }
+  &__text {
+    line-height: 2rem;
+    font-size: 1.3rem;
+  }
+}
+
+.mt-large {
+  margin-top: 3rem;
+}
+
+.colors {
+  font-size: 1.5rem;
+  font-family: sans-serif;
+}
+
+.btn {
+  background-color: #ff6b93;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 1.5rem 2.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-size: 1.3rem;
+  border: none;
+  letter-spacing: 2px;
+  cursor: pointer;
+  &:hover {
+    background-color: #d15879;
+  }
+  &:focus {
+    outline: none;
+  }
+  &--danger {
+    background-color: #ff3b1a;
+    &:hover {
+      background-color: #d43116;
+    }
+  }
+  &--success {
+    background-color: #00d123;
+    &:hover {
+      background-color: #00ab1d;
+    }
+  }
+  &--small {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  &--big {
+    padding: 1.8rem 4.5rem;
+    font-size: 1.7rem;
+  }
+  &--border {
+    background-color: #fff;
+    color: #ff6b93;
+    border: 1px solid #ff6b93;
+    &:hover {
+      background-color: #ff6b93;
+      color: #fff;
+    }
+  }
+}
+
+$icons: (
+  facebook: "\f0c4",
+  twitter: "\f0c5",
+  googleplus: "\f0c6",
+  youtube: "\f0c7",
+);
+// Mixin doing the magic
+@mixin icons-list($map) {
+  @each $icon-name, $icon in $map {
+    @if not map-has-key($map, $icon-name) {
+      @warn "'#{$icon-name}' is not a valid icon name";
+    } @else {
+      &--#{$icon-name}::before {
+        content: $icon;
+      }
+    }
+  }
+}
+
+// How to use it
+.social-link {
+  background-color: grey;
+  @include icons-list($icons);
+}

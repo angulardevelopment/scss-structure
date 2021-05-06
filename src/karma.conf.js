@@ -1,6 +1,6 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
-const puppeteer = require('puppeteer');
+
 process.env.CHROME_BIN = puppeteer.executablePath();
 
 module.exports = function (config) {
@@ -31,9 +31,9 @@ module.exports = function (config) {
       ChromeHeadless:  {
         base:   'Chrome',
         flags:  [
-          '--headless', 
+          '--headless',
           '--remote-debugging-port=9222',
-          '--no-sandbox', 
+          '--no-sandbox',
           '--proxy-server=\'direct://\'',
           '--proxy-bypass-list=*'
         ],
