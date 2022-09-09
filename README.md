@@ -9,3 +9,5 @@ added basic features of SCSS
 ![image](src/assets/img.png)
 
  
+Responsive site
+css flex usage

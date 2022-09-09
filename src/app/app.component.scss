@@ -1,0 +1,94 @@
+
+.header {
+    display: flex;
+    // flex-start, flex-end, center, baseline (aligns the flex items such as their baselines aligns)
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: solid 2px #eaeaea;
+    height: 3.5em;
+    width: 100%;
+}
+.parent-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;  //Overflow:hidden just says if text flows outside of this element the scrollbars don't show.
+    background-color: #333;
+}
+
+.parent-menu{
+    width: 100%;
+}
+.parent-menu li {
+    float: left;
+}
+.parent-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+/* put black cover if hover on element except active element */
+.parent-menu li a:hover:not(.active) {
+    background-color: #111;
+}
+.parent-menu .active{
+    background-color: #4CAF50;
+}
+.parent-container {
+    padding-left: 10px;
+}
+// .bn {
+//     float: right;
+//     border: 1px solid;
+//     width: 300px;
+//     height: 400px;
+// }
+
+// .zx {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0 0 1em 0;
+// }
+
+nav ul {
+    list-style-type: none;
+    margin-right: 15px;
+}
+
+#footer {
+    position: relative;
+    bottom: 0;
+    left:0;
+    right: 0;
+    padding: 5em 0 3em 0;
+    background-color: #f7f7f7;
+    text-align: center;
+        .icons {
+            font-size: 1.5em;
+            margin: 0 0 2em 0;
+            padding-left: 0;
+            li {
+                display: inline-block;
+                padding: 0 0.75em 0 0;
+                a::before {
+                    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                    background-color: #7bd2ed;
+                    border-radius: 100%;
+                    color: #ffffff;
+                    display: inline-block;
+                    font-size: 1.5rem;
+                    line-height: 2.25em;
+                    width: 2.25em;
+                }
+            }
+        }
+        .copyright {
+            color: #aaaaaa;
+            font-size: 0.8em;
+        }
+
+    }
+

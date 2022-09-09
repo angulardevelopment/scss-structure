@@ -1,0 +1,11 @@
+.maindivnotfound{
+    margin: 0 auto;
+    text-align: center;;
+    width: 60%;
+    position: relative;
+    top: 60px;
+}
+
+.imgsize{
+    width: 100%;
+}
