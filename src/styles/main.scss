@@ -1,6 +1,13 @@
 // import all style folder files here
-@import 'abstracts/variables.scss';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+@import 'abstracts/placeholders';
 
+@import 'components/buttons';
+
+@import 'layout/footer';
+
+@import 'pages/contact';
 
 
 * {
