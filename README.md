@@ -75,7 +75,8 @@ Don't Forget to bookmark/star this repo.
 
 ## buy me a coffee /Sponsor this project
 
-[ko-fi](ko-fi.com/softwaredev)
+[ko-fi](https://ko-fi.com/softwaredev)
+
 ## Need help?
 Feel free to contact me on this [link](https://bio.link/angulardev) 
 
