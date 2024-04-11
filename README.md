@@ -1,3 +1,15 @@
+    "kss": "^3.0.1",
+    "source-map-explorer": "^2.4.2",
+    "redux-devtools-extension": "^2.13.8",
+    "redux": "^4.0.1",
+    "quill": "^1.3.7",
+    "html2canvas": "^1.0.0-rc.5",
+    "froala-editor": "^3.2.0",
+    "file-saver": "^2.0.2",
+    "@infosimples/node_two_captcha": "^1.0.2",
+    "@angular-redux/store": "^9.0.0",
+
+
 ## App name
 Basic SCSS Architecture you can follow in your project. It is preferable to Follow SCSS pattern which make development agile. 
 To create this structure  add styles folder and change in angular.json file.
