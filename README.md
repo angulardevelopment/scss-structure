@@ -27,14 +27,10 @@ I'm Sam, and I'm passionate about product engineering and web development. I cre
 ### Packages used
 -    "kss": "^3.0.1",
 -    "source-map-explorer": "^2.4.2",
--    "redux-devtools-extension": "^2.13.8",
--    "redux": "^4.0.1",
 -    "quill": "^1.3.7",
--    "html2canvas": "^1.0.0-rc.5",
 -    "froala-editor": "^3.2.0",
 -    "file-saver": "^2.0.2",
 -    "@infosimples/node_two_captcha": "^1.0.2",
--    "@angular-redux/store": "^9.0.0"
 
 ## Subscribe and Stay Updated!
 
