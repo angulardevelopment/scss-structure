@@ -1,16 +1,16 @@
-@import "../../styles/abstracts/variables.scss";
-
+@import '../../styles/abstracts/variables.scss';
 
 h2 {
   color: $text-color;
 }
 
-// body {
-//   margin: 0;
-//   color: rgba(255,255,255,0.9);
-//   background: url('http://bit.ly/2FiPrRA') 0 100%/340px no-repeat, var(--primary-color);
-//   font-family: 'Shadows Into Light Two', cursive;
-// }
+body {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  background: url('http://bit.ly/2FiPrRA') 0 100%/340px no-repeat,
+    var(--primary-color);
+  font-family: 'Shadows Into Light Two', cursive;
+}
 
 main.booth {
   min-height: 100vh;
@@ -19,7 +19,6 @@ main.booth {
   align-items: center;
 }
 
-/* Slider */
 .slider,
 .instructions {
   position: absolute;
@@ -34,7 +33,6 @@ main.booth {
   display: block;
 }
 
-/* Instructions */
 .instructions {
   text-align: center;
   bottom: 0;
@@ -42,7 +40,6 @@ main.booth {
   color: black;
 }
 
-/* Color Boxes */
 .color-boxes {
   background: red;
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4);
@@ -83,20 +80,20 @@ main.booth {
   background: var(--bg-6);
 }
 
-.btn {
-  padding: 2rem 4rem;
-  border: 2px solid var(--color, black); //if this variable is not declared then it will take black as default
-  background: transparent;
-  font-size: 0.6em;
-  border-radius: 2px;
-}
-/*on hover*/
-.btn:hover {
-  cursor: pointer;
-  background: var(--color, black);
-  color: white;
-}
+// .btn {
+//   padding: 2rem 4rem;
+//   border: 2px solid var(--color, black); //if this variable is not declared then it will take black as default
+//   background: transparent;
+//   font-size: 0.6em;
+//   border-radius: 2px;
+// }
 
+// .btn:hover {
+//   cursor: pointer;
+//   background: var(--color, black);
+//   color: white;
+// }
+//
 // .btn.red {
 //   border-color: red
 // }
@@ -104,10 +101,10 @@ main.booth {
 //   background: red
 // }
 //or
-.btn.red {
-  --color: red;
-}
-
+// .btn.red {
+//   --color: red;
+// }
+//
 div.abc {
   background-color: var(--bg, white);
   color: var(--bg-text, black);
@@ -137,25 +134,25 @@ div.abc {
 }
 
 .example-header-image {
-  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 } //the colon ( : ) operator is used to define a variable in scss
 
-$header-height: 60px;
-// Sass, the variable sign is ! instead of $ and  assignment sign is = instead of :
-// "#" or ".", but in SASS they are replaced with "% and in sass we do not need brackets and semicolons
-.class1,
-.class2 {
-  color: blue;
-}
+// $header-height: 60px;
+// // Sass, the variable sign is ! instead of $ and  assignment sign is = instead of :
+// // "#" or ".", but in SASS they are replaced with "% and in sass we do not need brackets and semicolons
+// .class1,
+// .class2 {
+//   color: blue;
+// }
 
-h2 {
-  width: 3px * 5 + 5px; // 20px
-  width: 3 * (5px + 5px); // 30px
-  width: 3px + (6px / 2) * 3; // 12px
-}
+// h2 {
+//   width: 3px * 5 + 5px; // 20px
+//   width: 3 * (5px + 5px); // 30px
+//   width: 3px + (6px / 2) * 3; // 12px
+// }
 
-//e.g 2 working
+// //e.g 2 working
 @mixin text($colour, $size) {
   color: $colour;
   font-size: $size;
@@ -181,8 +178,6 @@ p {
   }
 }
 
-
-
 @for $i from 1 through 4 {
   .p#{$i} {
     padding-left: $i * 10px;
@@ -195,18 +190,18 @@ p {
   }
 }
 
-@each $color in pink, violet, yellow, blue {
-  .p_#{$color} {
-    background-color: #{$color};
-  }
-}
+// @each $color in pink, violet, yellow, blue {
+//   .p_#{$color} {
+//     background-color: #{$color};
+//   }
+// }
 
-@each $color, $border in (aqua, dotted), (red, solid), (green, double) {
-  .#{$color} {
-    background-color: $color;
-    border: $border;
-  }
-}
+// @each $color, $border in (aqua, dotted), (red, solid), (green, double) {
+//   .#{$color} {
+//     background-color: $color;
+//     border: $border;
+//   }
+// }
 
 $i: 100;
 @while $i>0 {
@@ -382,110 +377,110 @@ $main-color: #bdc3c7;
 // @warn "Darker: " darken($main-color, 30%);
 // @debug "kicking the party";
 
-//
-$font-sizes: 10px+20px;
-$style: (
-  color: #bdc3c7,
-);
-// .container {
-// @debug $style;
-// @debug $font-sizes;
-// }
-$main-color: #bdc3c7;
-// @warn "Darker: " darken($main-color, 30%);
-// @debug "kicking the party";
-@mixin nudge($x, $y) {
-  @error "this will throw inline error";
-  @error "Sorry, but `#{$variable}` is not a valid value for $variable.";
-  @if unitless($x) {
-    @warn "You may have forgotten a unit for the X value. Expects pixels. Value was: #{$x}.";
-    $x: 1px * $x;
-  }
-  @if unitless($y) {
-    @warn "You may have forgotten a unit for the Y value. Expects pixels. Value was: #{$y}.";
-    $y: 1px * $y;
-  }
-  position: relative;
-  left: $x;
-  top: $y;
-}
-
-// .logo{
-//   //incorrect usage
-//   @include nudge(5,10 )
-// }
-// .widget{
-//   @include nudge(12px,-4px )
-// }
-$colors: (
-  brand-red: #c0392b,
-  brand-blue: #2980b9,
-  text-gray: #2c3e50,
-  text-silver: #bdc3c7,
-);
-@function color-variation($color) {
-  @if map-has-key($colors, $color) {
-    @return map-get($colors, $color);
-  }
-  @error "Invalid color name: `#{$color}`.";
-}
-
-.element {
-  // color: color-variation(brand-orange);   //will show error
-  color: color-variation(brand-red);
-}
-
-@mixin border-radius($radius) {
-  @warn "The `border-radius()` mixin will be deprecated in version 2.0.";
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  -o-border-radius: $radius;
-  border-radius: $radius;
-}
-
-@function do-math($input) {
-  @if unit($input) == "px" {
-    @warn "Please remember to use rem values in the `do-math()` function."; // do px math and @return a value to prevent the function from going any further
-  } // do rem math and @return a value
-}
-
-//learn &.
-
-/* There are two types of positioning
-There is static-type positioning and relative-type positioning.
-positions through the use of offset properties, those being: top, right, bottom and left.
-*/
-
-.ourBox {
-  position: static; //  relative, absolute and fixed
-}
-
-/* The element is taken out of normal flow and leaves no space behind.
-The element is positioned relative to its nearest parent with a relative-type positioning.
-Let’s take a look: */
-
-.ourBoxesParent {
-  position: relative;
-}
-
-.ourBox {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-// p.reddy {
-//     background: red;
+// //
+// $font-sizes: 10px+20px;
+// $style: (
+//   color: #bdc3c7,
+// );
+// // .container {
+// // @debug $style;
+// // @debug $font-sizes;
+// // }
+// $main-color: #bdc3c7;
+// // @warn "Darker: " darken($main-color, 30%);
+// // @debug "kicking the party";
+// @mixin nudge($x, $y) {
+//   @error "this will throw inline error";
+//   @error "Sorry, but `#{$variable}` is not a valid value for $variable.";
+//   @if unitless($x) {
+//     @warn "You may have forgotten a unit for the X value. Expects pixels. Value was: #{$x}.";
+//     $x: 1px * $x;
 //   }
-// The second declaration will overrule the former, and the paragraph will be blue and not red
-p.reddy {
-  background: blue;
-}
+//   @if unitless($y) {
+//     @warn "You may have forgotten a unit for the Y value. Expects pixels. Value was: #{$y}.";
+//     $y: 1px * $y;
+//   }
+//   position: relative;
+//   left: $x;
+//   top: $y;
+// }
 
-/* transform applies a 2D or 3D transformation to an element
-for  IE -ms-transform:
-for Chrome  -webkit-transform: */
+// // .logo{
+// //   //incorrect usage
+// //   @include nudge(5,10 )
+// // }
+// // .widget{
+// //   @include nudge(12px,-4px )
+// // }
+// $colors: (
+//   brand-red: #c0392b,
+//   brand-blue: #2980b9,
+//   text-gray: #2c3e50,
+//   text-silver: #bdc3c7,
+// );
+// @function color-variation($color) {
+//   @if map-has-key($colors, $color) {
+//     @return map-get($colors, $color);
+//   }
+//   @error "Invalid color name: `#{$color}`.";
+// }
+
+// .element {
+//   // color: color-variation(brand-orange);   //will show error
+//   color: color-variation(brand-red);
+// }
+
+// @mixin border-radius($radius) {
+//   @warn "The `border-radius()` mixin will be deprecated in version 2.0.";
+//   -webkit-border-radius: $radius;
+//   -moz-border-radius: $radius;
+//   -ms-border-radius: $radius;
+//   -o-border-radius: $radius;
+//   border-radius: $radius;
+// }
+
+// @function do-math($input) {
+//   @if unit($input) == "px" {
+//     @warn "Please remember to use rem values in the `do-math()` function."; // do px math and @return a value to prevent the function from going any further
+//   } // do rem math and @return a value
+// }
+
+// //learn &.
+
+// /* There are two types of positioning
+// There is static-type positioning and relative-type positioning.
+// positions through the use of offset properties, those being: top, right, bottom and left.
+// */
+
+// .ourBox {
+//   position: static; //  relative, absolute and fixed
+// }
+
+// /* The element is taken out of normal flow and leaves no space behind.
+// The element is positioned relative to its nearest parent with a relative-type positioning.
+// Let’s take a look: */
+
+// .ourBoxesParent {
+//   position: relative;
+// }
+
+// .ourBox {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+
+// // p.reddy {
+// //     background: red;
+// //   }
+// // The second declaration will overrule the former, and the paragraph will be blue and not red
+// p.reddy {
+//   background: blue;
+// }
+
+// /* transform applies a 2D or 3D transformation to an element
+// for  IE -ms-transform:
+// for Chrome  -webkit-transform: */
 
 //  top:0px;     /*move from parent of element*/
 // overflow:hidden;  /*visible,auto,scroll*/
@@ -498,19 +493,19 @@ $colors: (
   text-gray: #2c3e50,
   text-silver: #bdc3c7,
 );
-.element {
-  @debug $color-blue; // single value
-  @debug $font-sizes; // list
-  @debug $colors; // map
-  @debug 4em * 3; // math expression
-  @debug "My very own string just because."; // string
-}
+// .element {
+//   @debug $color-blue; // single value
+//   @debug $font-sizes; // list
+//   @debug $colors; // map
+//   @debug 4em * 3; // math expression
+//   @debug "My very own string just because."; // string
+// }
 
-$first-width: 5px;
-$second-width: 5px;
-@function adjust_width($n) {
-  @return $n * $first-width + ($n - 1) * $second-width;
-}
+// $first-width: 5px;
+// $second-width: 5px;
+// @function adjust_width($n) {
+//   @return $n * $first-width + ($n - 1) * $second-width;
+// }
 
 #set_width {
   padding-left: adjust_width(10);
@@ -576,7 +571,7 @@ p {
 // }
 // or
 .clearfix::after {
-  content: "";
+  content: '';
   clear: both;
   display: table;
 }
@@ -585,7 +580,7 @@ p {
   float: right;
 }
 
-// Styles are included into the mixin in the @content directive location.//means u can modify mixin using content directive
+// // Styles are included into the mixin in the @content directive location.//means u can modify mixin using content directive
 @mixin element {
   background-color: black;
   color: red;
@@ -642,7 +637,7 @@ p {
   letter-spacing: 2px;
   cursor: pointer;
   &:hover {
-    background-color: #d15879;
+    background-color: #d15879;  // Hover effect using Sass.
   }
   &:focus {
     outline: none;
@@ -679,10 +674,10 @@ p {
 }
 
 $icons: (
-  facebook: "\f0c4",
-  twitter: "\f0c5",
-  googleplus: "\f0c6",
-  youtube: "\f0c7",
+  facebook: '\f0c4',
+  twitter: '\f0c5',
+  googleplus: '\f0c6',
+  youtube: '\f0c7',
 );
 // Mixin doing the magic
 @mixin icons-list($map) {
@@ -701,4 +696,17 @@ $icons: (
 .social-link {
   background-color: grey;
   @include icons-list($icons);
+}
+
+
+// pass dynamic values in mixin
+@mixin btn {
+color:red;
+width:100px;
+height:100px;
+font-size:10px;
+}
+
+.btn2{
+// @include btn(ar1, ar2, ar3)
 }
