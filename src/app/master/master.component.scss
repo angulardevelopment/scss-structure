@@ -1,2 +1,273 @@
 
 
+// normal css
+a:link { color: white; }
+a:visited { color: blue; }
+a:hover { color: green; }
+a:active { color: red; }
+
+// with scss
+@mixin linx ($link, $visit, $hover, $active) {
+a {
+color: $link;
+&:visited {
+color: $visit;
+}
+&:hover {
+color: $hover;
+}
+&:active {
+color: $active;
+}
+}
+}
+.menu-button {
+@include linx(brown, blue, green, red);
+}
+
+// The @mixin directive defines the mixins. It is used to include optionally the variables and arguments after the name of the mixin.
+
+// The @include directive is used to include the style defined by the mixin into the document.
+
+@mixin style {
+.cont{
+color: #FF0000 ;
+}
+}
+
+
+
+p{
+@include style;
+
+}
+
+// content directive:
+
+// The content blocks are passed to the mixin for the placement inside the styles. This functionality is added in Sass version 3.2. You can modify and add more styles into the mixin using the content directive.
+
+// Styles are included in the mixin in the @content directive location.
+
+@mixin element{
+@content;
+}
+// added content in mixin
+@mixin element {
+background-color: black;
+color: red;
+@content;
+}
+
+p {
+@include element;
+font-weight: bold;
+}
+
+// If function -
+
+h2 {
+color: if( 1 + 1==3, green, red);
+}
+
+// If directive -
+
+p {
+@if 1+1==2 {
+border: 1px solid;
+}
+@if 5 < 3 {
+border: 2px dotted;
+}
+@if null {
+border: 3px double;
+}
+}
+p {
+@if 1 + 1 == 2 { border: 1px solid; }
+@if 5 < 3 { border: 2px dotted; }
+@if null { border: 3px double; }
+}
+
+// else if directive:
+
+$type: monster;
+p {
+@if $type==ocean {
+color: blue;
+}
+@else if $type==matador {
+color: red;
+}
+@else if $type==monster {
+color: green;
+}
+@else {
+color: black;
+}
+}
+
+// For loop directive:
+
+
+
+@for $i from 1 through 4 {
+.p#{$i} {
+padding-left: $i * 10px;
+}
+}
+
+// you can also use to instead of through. If you don't want to include last value
+
+p1 {
+padding-left: 10px; }
+.p2 {
+padding-left: 20px; }
+.p3 {
+padding-left: 30px; }
+.p4 {
+padding-left: 40px; }
+
+// Each directive:
+
+@each $color in pink, violet, yellow, blue {
+.p_#{$color} {
+background-color: #{$color};
+}
+}
+
+
+.p_pink {
+background-color: pink; }
+.p_violet {
+background-color: violet; }
+.p_yellow {
+background-color: yellow; }
+.p_blue {
+background-color: blue; }
+
+// While directive:
+
+$i: 100;
+@while $i>0 {
+.padding-#{$i} {
+padding-left: 1px * $i;
+}
+$i: $i - 20;
+}
+
+.padding-100 {
+padding-left: 100px; }
+.padding-80 {
+padding-left: 80px; }
+.padding-60 {
+padding-left: 60px; }
+.padding-40 {
+padding-left: 40px; }
+.padding-20 {
+padding-left: 20px; }
+
+// Extend directive:
+
+.message {
+border: 1px solid #ccc;
+padding: 10px;
+color: #333;
+}
+
+.success {
+@extend .message;
+border-color: green;
+}
+
+.error {
+@extend .message;
+border-color: red;
+}
+
+.warning {
+@extend .message; //try to use extend to improve scss
+border-color: yellow;
+}
+
+// At-root directive:
+
+h2 {
+color: blue;
+background-color: pink;
+@at-root {
+.style {
+font-size: 20px;
+font-style: bold;
+color: violet;
+}
+}
+}
+
+// The above code will render like this
+h2 {
+color: blue;
+background-color: pink;
+}
+.style {
+font-size: 20px;
+font-style: bold;
+color: violet;
+}
+
+// @import directive:
+
+// In angular, you can create one file main.scss where You can import all scss files of components. You do not need to import files in each component.
+
+// _reset.scss (file name)
+
+html,
+body,
+ul,
+ol {
+margin: 0;
+padding: 0;
+}
+
+// base.scss
+
+@import 'reset';
+body {
+font: 100% Helvetica, sans-serif;
+background-color: #efefef;
+}
+
+// @media directive:
+
+h2 {
+color: violet; }
+.style {
+width: 500px; }
+@media screen and (orientation: portrait) {
+.style {
+width: 200px;
+margin-left: 80px; } }
+
+// debug keyword:
+
+$font-sizes: 10px + 20px;
+$style: (
+color: #bdc3c7
+);
+.container{
+@debug $style;
+@debug $font-sizes;
+}
+
+// Warn directive:
+
+$main-color: #bdc3c7;
+@warn "Darker: " darken($main-color, 30%);
+
+// creating function in scss-
+
+$first-width: 5px;
+$second-width: 5px;
+
+@function adjust_width($n) {
+@return $n * $first-width + ($n - 1) * $second-width;
+}
