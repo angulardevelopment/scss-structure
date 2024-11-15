@@ -83,3 +83,17 @@
   color: #FFF;
   background-color: red;
 }
+
+/* sass mixins
+//Less mixin for rounding borders */
+.round-borders (@radius) {
+  border-radius: @radius;
+  }
+  /* //Add the round-borders mixin with Less */
+.box { round-borders(0.5rem); }
+
+/* // The same round-border mixin in Sass looks as follows:
+//Sass mixin for rounding corners */
+@mixin round-borders (@radius) {
+border-radius: $radius;
+}
