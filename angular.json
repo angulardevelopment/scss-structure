@@ -18,6 +18,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "preserveSymlinks": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -98,6 +99,24 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "testingpurpose:build",
+            "compodoc": false,
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "testingpurpose:build",
+            "compodoc": false,
+            "outputDir": "dist/storybook/testingpurpose"
+          }
         }
       }
     },
@@ -125,6 +144,36 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "e2e//.storybook",
+            "browserTarget": "testingpurpose-e2e:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "e2e/"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "e2e//.storybook",
+            "browserTarget": "testingpurpose-e2e:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "e2e/"
+            ],
+            "outputDir": "dist/storybook/testingpurpose-e2e"
           }
         }
       }

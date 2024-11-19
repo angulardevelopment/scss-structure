@@ -24,6 +24,13 @@ I'm Sam, and I'm passionate about product engineering and web development. I cre
 - Created Responsive site using css flex.
 - Implemented basic features of SCSS.
 
+- npx storybook init
+- npx storybook automigrate
+
+In angular we cannot directly run storybook with above commands.
+ng run testingpurpose:storybook
+https://www.browserstack.com/guide/storybook-for-angular
+
 ### Packages used
 -    "kss": "^3.0.1",
 -    "source-map-explorer": "^2.4.2",

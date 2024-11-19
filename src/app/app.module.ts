@@ -22,6 +22,7 @@ const routes: Routes = [
     path: '**',
     component: PagenotfoundComponent
   },
+  { path: 'test', component: TestComponent },
 ]
 @NgModule({
   declarations: [
