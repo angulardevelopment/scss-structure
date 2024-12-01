@@ -10,32 +10,34 @@
 //     width: 100%;
 // }
 
-// /* OOCSS before  */
-// .button {
-//   width: 150px;
-//   height: 50px;
-//   background: #FFF;
-//   border-radius: 5px;
-// }
+// Before OOCSS
+.button {
+  width: 150px;
+  height: 50px;
+  background: #FFF;
+  border-radius: 5px;
+}
 
-// .button-2 {
-//   width: 150px;
-//   height: 50px;
-//   background: #000;
-//   border-radius: 5px;
-// }
-// /* This code can be divided because it has repeated codes. */
-// .button {
-//   background: #FFF;
-// }
-// .button-2 {
-//   background: #000;
-// }
-// .skin {
-//   width: 150px;
-//   height: 50px;
-//   border-radius: 5px;
-// }
+.button-2 {
+  width: 150px;
+  height: 50px;
+  background: #000;
+  border-radius: 5px;
+}
+// /* This code can be divided because it has repeated codes. // After OOCSS */
+.button {
+  background: #FFF;
+}
+.button-2 {
+  background: #000;
+}
+.skin {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+
 
 // /* Avoiding child selectors is a good strategy for maintaining separation between content and container. */
 // #sidebar {

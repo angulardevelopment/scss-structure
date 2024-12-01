@@ -730,5 +730,21 @@ font-size:10px;
    color: #900;
  }
 
+.media {...}
+.media--inverter {...}
+.media__image-wrapper {...}
+.media__image {...}
+.media__content {...}
 
- 
+// With SASS - which will output the code above
+
+.media {
+ ...
+ &--inverter {...}
+ &__image-wrapper {...}
+ &__image {...}
+ &__content {...}
+}
+
+
+

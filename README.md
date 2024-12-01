@@ -31,6 +31,9 @@ In angular we cannot directly run storybook with above commands.
 ng run testingpurpose:storybook
 https://www.browserstack.com/guide/storybook-for-angular
 
+For more info:
+https://9elements.com/bem-cheat-sheet/ 
+
 ### Packages used
 -    "kss": "^3.0.1",
 -    "source-map-explorer": "^2.4.2",
