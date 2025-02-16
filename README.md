@@ -27,11 +27,12 @@ I'm Sam, and I'm passionate about product engineering and web development. I cre
 - npx storybook init
 - npx storybook automigrate
 
+or
+npx -p @storybook/cli sb init --type angular
+
 In angular we cannot directly run storybook with above commands.
-ng run testingpurpose:storybook
 https://www.browserstack.com/guide/storybook-for-angular
 
-For more info:
 https://9elements.com/bem-cheat-sheet/ 
 
 ### Packages used
