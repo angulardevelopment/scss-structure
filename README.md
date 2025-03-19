@@ -37,7 +37,6 @@ https://9elements.com/bem-cheat-sheet/
 
 ### Packages used
 -    "kss": "^3.0.1",
--    "source-map-explorer": "^2.4.2",
 -    "quill": "^1.3.7",
 -    "froala-editor": "^3.2.0",
 -    "file-saver": "^2.0.2",
