@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "testingpurpose:build"
+            "buildTarget": "testingpurpose:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "testingpurpose:build:production"
+              "buildTarget": "testingpurpose:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "testingpurpose:build"
+            "buildTarget": "testingpurpose:build"
           }
         },
         "test": {
@@ -104,7 +104,7 @@
           "builder": "@storybook/angular:start-storybook",
           "options": {
             "configDir": ".storybook",
-            "browserTarget": "testingpurpose:build",
+            "buildTarget": "testingpurpose:build",
             "compodoc": false,
             "port": 6006
           }
@@ -113,7 +113,7 @@
           "builder": "@storybook/angular:build-storybook",
           "options": {
             "configDir": ".storybook",
-            "browserTarget": "testingpurpose:build",
+            "buildTarget": "testingpurpose:build",
             "compodoc": false,
             "outputDir": "dist/storybook/testingpurpose"
           }
@@ -150,7 +150,7 @@
           "builder": "@storybook/angular:start-storybook",
           "options": {
             "configDir": "e2e//.storybook",
-            "browserTarget": "testingpurpose-e2e:build",
+            "buildTarget": "testingpurpose-e2e:build",
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -165,7 +165,7 @@
           "builder": "@storybook/angular:build-storybook",
           "options": {
             "configDir": "e2e//.storybook",
-            "browserTarget": "testingpurpose-e2e:build",
+            "buildTarget": "testingpurpose-e2e:build",
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -179,7 +179,6 @@
       }
     }
   },
-  "defaultProject": "testingpurpose",
   "cli": {
     "analytics": "888e4dca-b90b-460e-aa65-09d0032ea3e3"
   }

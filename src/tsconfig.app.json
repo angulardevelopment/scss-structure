@@ -8,7 +8,9 @@
   },
   "exclude": [
     "test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "stories",
+    "**/*.stories.ts"
   ],
   "files": [
     "./main.ts",
