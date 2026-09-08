@@ -1,4 +1,5 @@
-@import '../../styles/abstracts/variables.scss';
+@use 'sass:map';
+@use '../../styles/abstracts/variables' as *;
 
 h2 {
   color: $text-color;
@@ -682,7 +683,7 @@ $icons: (
 // Mixin doing the magic
 @mixin icons-list($map) {
   @each $icon-name, $icon in $map {
-    @if not map-has-key($map, $icon-name) {
+    @if not map.has-key($map, $icon-name) {
       @warn "'#{$icon-name}' is not a valid icon name";
     } @else {
       &--#{$icon-name}::before {
@@ -707,9 +708,9 @@ height:100px;
 font-size:10px;
 }
 
-.btn2{
+// .btn2{
 // @include btn(ar1, ar2, ar3)
-}
+// }
 
 
 // CSS BEM

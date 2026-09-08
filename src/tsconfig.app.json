@@ -10,7 +10,8 @@
     "test.ts",
     "**/*.spec.ts",
     "stories",
-    "**/*.stories.ts"
+    "**/*.stories.ts",
+    "environments/environment.prod.ts"
   ],
   "files": [
     "./main.ts",
